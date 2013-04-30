@@ -58,7 +58,7 @@ $row = mysqli_fetch_array($result);
 	</div>    
 	<div class="row" style="margin-top:0%;padding:1%;">	    
 	    <div class="span6" style="background-color:lavender;">
-			<p><a href="<?php echo'addtocart.php?isbn='.$row['isbn'];?>" style="padding:5%;">Add To Cart</a>
+			<p><a href="<?php echo'show_cart.php?new='.$row['isbn'];?>" style="padding:5%;">Add To Cart</a>
 			<a href="<?php echo'index.php';?>" style="padding:20%;">Continue Shopping</a></p>
 	    </div>
 	    <div class="span6">
