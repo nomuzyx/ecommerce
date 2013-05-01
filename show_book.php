@@ -20,11 +20,10 @@ $isbn = $_GET['isbn'];
 //	display_button('admin.php','admin-menu','Admin Menu');
 //}
 
-$qry="SELECT isbn,title,author,price,descrip FROM books WHERE isbn =".$isbn;
+$qry="SELECT isbn,title,catid,author,price,descrip FROM books WHERE isbn =".$isbn;
 
 $result = mysqli_query($con,$qry);
 $row = mysqli_fetch_array($result);
-
 ?>
 <body style="background-color:lavender;">
 	
@@ -58,8 +57,11 @@ $row = mysqli_fetch_array($result);
 	</div>    
 	<div class="row" style="margin-top:0%;padding:1%;">	    
 	    <div class="span6" style="background-color:lavender;">
-			<p><a href="<?php echo'show_cart.php?new='.$row['isbn'];?>" style="padding:5%;">Add To Cart</a>
-			<a href="<?php echo'index.php';?>" style="padding:20%;">Continue Shopping</a></p>
+	    	<?php
+			echo"<p>";
+			echo'<a href= show_cart.php?new='.$row["isbn"].'>Add To Cart</a></p>';
+			echo'<p><a href=show_cat.php?catid='.$row["catid"].'>Continue Shopping</a></p>';
+			?>
 	    </div>
 	    <div class="span6">
 	         
