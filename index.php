@@ -20,7 +20,22 @@ $result = mysqli_query($con,$qry);
 ?>
 <body style="background-color:lavender;">
 	
-	<h1 style="background-color:skyblue;">Online Book Store</h1>
+	<div class="row" style="background-color:skyblue;">	
+			<div class="span6">
+				<h1>Online Book Store</h1>
+			</div>	
+			<div class="span6">
+				<?php
+				echo"<p>Total Items =".$_SESSION['items'];
+				echo"</p>";
+				echo"<p>Total Price = $".$_SESSION['total_price'];
+				echo"</p>";
+				echo'<p><a href="show_cart.php">View Cart</a>';
+				echo"</p>";
+				?>
+			</div>	
+	</div>	
+	
 	<h2>Welcome to online book store.</h2>
 
 <div class="container">	    
