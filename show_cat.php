@@ -50,12 +50,12 @@ $name = mysqli_fetch_array($rcatname);
 				?>
 			</div>	
 	</div>	
-	<h2><?php echo $name["catname"]; ?></h2>
+	<h3><?php echo $name["catname"]; ?></h3>
 
 <div class="container">	    
     <div class="row" style="margin-top:0%;padding:1%;">	
 
-		<div class="span6" style="background-color:tan;">
+		<div class="span6">
 			<p>Please Choose a Book.</p>  
 			<ul>
 				<?php

@@ -30,18 +30,18 @@ $result = mysqli_query($con,$qry);
 				echo"</p>";
 				echo"<p>Total Price = $".$_SESSION['total_price'];
 				echo"</p>";
-				echo'<p><a href="show_cart.php">View Cart</a>';
+				echo'<p><a href="show_cart.php">View Cart <img src="shopcart3.jpg" width="50" height="50"></a>';
 				echo"</p>";
 				?>
 			</div>	
 	</div>	
 	
-	<h2>Welcome to online book store.</h2>
+	<h3>Welcome to online book store.</h3>
 
 <div class="container">	    
     <div class="row" style="margin-top:0%;padding:1%;">	
 
-		<div class="span6" style="background-color:tan;">
+		<div class="span6">
 			<p>Please Choose a Category</p>  
 			<ul>
 				<?php
