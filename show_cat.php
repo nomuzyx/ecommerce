@@ -34,7 +34,7 @@ $name = mysqli_fetch_array($rcatname);
 
 ?>
 <body style="background-color:lavender;">
-	
+<div class="container">	    	
 	<div class="row" style="background-color:skyblue;">	
 			<div class="span6">
 				<h1>Online Book Store</h1>
@@ -52,8 +52,8 @@ $name = mysqli_fetch_array($rcatname);
 	</div>	
 	<h3><?php echo $name["catname"]; ?></h3>
 
-<div class="container">	    
-    <div class="row" style="margin-top:0%;padding:1%;">	
+
+    <div class="row" style="margin-top:0%;padding:0%;">	
 
 		<div class="span6">
 			<p>Please Choose a Book.</p>  

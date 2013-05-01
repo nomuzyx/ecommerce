@@ -27,6 +27,7 @@ $row = mysqli_fetch_array($result);
 
 ?>
 <body style="background-color:lavender;">
+<div class="container">		
 	<div class="row" style="background-color:skyblue;">	
 			<div class="span6">
 				<h1>Online Book Store</h1>
@@ -44,8 +45,8 @@ $row = mysqli_fetch_array($result);
 	</div>	
 	<h3><?php echo $row["title"]; ?></h3>
 
-<div class="container">	    
-    <div class="row" style="margin-top:0%;padding:1%;">	
+    
+    <div class="row" style="margin-top:0%;padding:0%;">	
 
 		<div class="span6">
 			<ul>

@@ -19,7 +19,7 @@ $result = mysqli_query($con,$qry);
 
 ?>
 <body style="background-color:lavender;">
-	
+<div class="container">	  	
 	<div class="row" style="background-color:skyblue;">	
 			<div class="span6">
 				<h1>Online Book Store</h1>
@@ -35,11 +35,8 @@ $result = mysqli_query($con,$qry);
 				?>
 			</div>	
 	</div>	
-	
 	<h3>Welcome to online book store.</h3>
-
-<div class="container">	    
-    <div class="row" style="margin-top:0%;padding:1%;">	
+    <div class="row" style="margin-top:0%;padding:0%;">	
 
 		<div class="span6">
 			<p>Please Choose a Category</p>  

@@ -96,7 +96,7 @@ if (!$_SESSION['total_price']) $_SESSION['total_price'] = '0.00';
 
 ?>
 <body style="background-color:lavender;">
-	<div class="container">	   
+<div class="container">	   
 		<div class="row" style="background-color:skyblue;">	
 			<div class="span6">
 				<h1>Online Book Store</h1>
@@ -113,12 +113,11 @@ if (!$_SESSION['total_price']) $_SESSION['total_price'] = '0.00';
 			</div>	
 		</div>	
 		<h3>Your Shopping Cart</h3>
-
-<div class="container">	    
-    <div class="row" style="margin-top:1%;padding:1%;">	
+    
+    <div class="row" style="margin-top:0%;padding:0%;">	
 
 		<div class="span12">
-			<table class="table-bordered">
+			<table class="table table-bordered">
 			<form action="show_cart.php" method="post">	
 				
 				<?php
@@ -185,7 +184,7 @@ if (!$_SESSION['total_price']) $_SESSION['total_price'] = '0.00';
 			
 	    </div>
 	</div>    
-	<div class="row" style="margin-top:0%;padding:1%;">	    
+	<div class="row" style="margin-top:0%;padding:0%;">	    
 	    <div class="span6" style="background-color:lavender;">
 			<p><a href='<?php echo "$mcatlink"; ?>'>Continue Shopping</a></p>
 			<p><a href='<?php echo"checkout.php";?>'>Go To Checkout</a></p>

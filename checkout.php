@@ -15,10 +15,11 @@ include 'mysqlcon.php';
 
 if (!$_SESSION['items']) $_SESSION['items'] = '0';
 if (!$_SESSION['total_price']) $_SESSION['total_price'] = '0.00';
+$shipcharge = 20;
 
 ?>
 <body style="background-color:lavender;">
-	<div class="container">	   
+<div class="container">	   
 		<div class="row" style="background-color:skyblue;">	
 			<div class="span6">
 				<h1>Online Book Store</h1>
@@ -36,14 +37,13 @@ if (!$_SESSION['total_price']) $_SESSION['total_price'] = '0.00';
 		</div>	
 		<h3>Checkout</h3>
 
-<div class="container">	    
-    <div class="row" style="margin-top:1%;padding:1%;">	
+	<form action="purchase.php" method="post">	    
+    <div class="row" style="margin-top:0%;padding:0%;">	
 
 		<div class="span12">
-			<table class="table-bordered">
-			<form action="show_cart.php" method="post">	
-				
-				<?php
+			<table class="table table-bordered">		
+			<?php
+
 				if ($_SESSION['cart'] && array_count_values($_SESSION['cart']))
 				{	
 					echo"<tr>";
@@ -86,7 +86,16 @@ if (!$_SESSION['total_price']) $_SESSION['total_price'] = '0.00';
 						echo'<td align= \"center\">'.$_SESSION['items'].'</td>';
 						echo'<td align="right">$'.number_format($_SESSION['total_price'],2).'</td>';	
 						echo"</tr>";
+						
+						echo"<tr>";
+						echo'<td colspan = "3" >Shipping &nbsp </td>';
+						echo'<td align="right">$'.$shipcharge.'</td>';	
+						echo"</tr>";
 
+						echo"<tr>";
+						echo'<td colspan = "3" >TOTAL INCLUDING SHIPPING &nbsp </td>';
+						echo'<td align="right">$'.number_format($_SESSION["total_price"] + $shipcharge,2).'</td>';	
+						echo"</tr>";
 						
 				}
 				else
@@ -97,7 +106,83 @@ if (!$_SESSION['total_price']) $_SESSION['total_price'] = '0.00';
 
 				
 				?>
-			</form>	
+			</table>			
+	    </div>
+	</div> 
+
+	<div class="row" style="margin-top:0%;padding:0%;">	    
+	    <div class="span12" style="background-color:skyblue;" >
+	    	<p class="text-center"><strong>Your Details</strong></p>
+	    </div>
+	</div>   
+
+	<div class="row" style="margin-top:0%;padding-left:1%;">	 
+	    <div class="span12">
+			<table class="table">		
+				<tr>
+				<td class="span5" >Name</td>
+				<td class="span7"><input type="text" name="name" class="span5"></td>
+			    </tr>
+				<tr>
+				<td class="span5" >Address</td>
+				<td class="span7"><textarea rows="3" name="address" class="span5"></textarea>
+			    </tr>					
+			    <tr>
+				<td class="span5" >City / Suburbs</td>
+				<td class="span7"><input type="text" name="city" class="span5"></td>
+			    </tr>
+			    <tr>
+				<td class="span5" >State / Province</td>
+				<td class="span7"><input type="text" name="state" class="span5"></td>
+			    </tr>
+			    <tr>
+				<td class="span5" >Postal Code or Zip Code</td>
+				<td class="span7"><input type="text" name="zip" class="span5"></td>
+			    </tr>
+			    <tr>
+				<td class="span5" >Country</td>
+				<td class="span7"><input type="text" name="country" class="span5"></td>
+			    </tr>
+
+			</table>	
+			
+	    </div>
+	</div>    
+	<div class="row" style="margin-top:0%;padding:0%;">	    
+	    <div class="span12" style="background-color:skyblue;" >
+	    	<p class="text-center"><strong>Shipping Address(leave blank if as above)</strong></p>
+	    </div>
+	</div>   
+
+	<div class="row" style="margin-top:0%;padding-left:1%;">	 
+	    <div class="span12">
+			<table class="table">		
+				<tr>
+				<td class="span5" >Name</td>
+				<td class="span7"><input type="text" name="ship_name" class="span5"></td>
+			    </tr>
+				<tr>
+				<td class="span5" >Address</td>
+				<td class="span7"><textarea rows="3" name="ship_addr" class="span5"></textarea>
+			    </tr>					
+			    <tr>
+				<td class="span5" >City / Suburbs</td>
+				<td class="span7"><input type="text" name="ship_city" class="span5"></td>
+			    </tr>
+			    <tr>
+				<td class="span5" >State / Province</td>
+				<td class="span7"><input type="text" name="ship_state" class="span5"></td>
+			    </tr>
+			    <tr>
+				<td class="span5" >Postal Code or Zip Code</td>
+				<td class="span7"><input type="text" name="ship_zip" class="span5"></td>
+			    </tr>
+			    <tr>
+				<td class="span5" >Country</td>
+				<td class="span7"><input type="text" name="ship_country" class="span5"></td>
+			    </tr>
+
+
 			</table>	
 			
 	    </div>
@@ -109,7 +194,8 @@ if (!$_SESSION['total_price']) $_SESSION['total_price'] = '0.00';
 	    <div class="span6">
 	         
 	    </div>
-	</div>    
+	</div> 
+	</form>	   
 </div>
 <body>
 </html>
