@@ -24,6 +24,7 @@ $qry="SELECT isbn,title,catid,author,price,descrip FROM books WHERE isbn =".$isb
 
 $result = mysqli_query($con,$qry);
 $row = mysqli_fetch_array($result);
+
 ?>
 <body style="background-color:lavender;">
 	
