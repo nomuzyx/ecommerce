@@ -48,8 +48,16 @@ $row = mysqli_fetch_array($result);
     
     <div class="row" style="margin-top:0%;padding:0%;">	
 
-		<div class="span6">
+		<div class="span2">
 			<ul>
+				<?php
+					$image = 'images/'.$row["isbn"].".jpg";
+					echo'<img src="'.$image.'" width="100" height="100">';
+				?>
+			</ul>	
+	    </div>
+	    <div class="span10">
+	         <ul>
 				<?php
 					echo "<li>";
 					echo'<strong>Author :</strong> ' . $row['author'];
@@ -64,10 +72,7 @@ $row = mysqli_fetch_array($result);
 					echo'<strong>Description : </strong>' . $row['descrip'];
   					echo "</li>";
 				?>
-			</ul>	
-	    </div>
-	    <div class="span6">
-	         
+			</ul>
 	    </div>
 	</div>    
 	<div class="row" style="margin-top:0%;padding:1%;">	    

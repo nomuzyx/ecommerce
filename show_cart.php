@@ -143,7 +143,9 @@ if (!$_SESSION['total_price']) $_SESSION['total_price'] = '0.00';
 						echo"<tr>";
 					
 						echo'<td align="left">';
-						echo'<a href="show_book.php?isbn='.$isbn.'">'.$row['title'].'</a> by '.$row['author'];
+						$image = 'images/'.$isbn.".jpg";
+						echo'<img src="'.$image.'" width="40" height="50">';
+						echo'<a href="show_book.php?isbn='.$isbn.'">'.$row['title']. ' by '. $row["author"].'</a>' ;
 						echo"</td>";	
 					
 						echo'<td align="right"> $'.number_format($row['price'],2);

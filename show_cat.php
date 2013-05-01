@@ -60,8 +60,13 @@ $name = mysqli_fetch_array($rcatname);
 			<ul>
 				<?php
 				while($row = mysqli_fetch_array($result))
-				{
+				{	
+					$image = 'images/'.$row["isbn"].".jpg";
 					echo "<li>";
+					if (file_exists($image))
+					{
+						echo'<img src="'.$image.'" width="50" height="50">';
+					}	
 					echo'<a href=show_book.php?isbn=' . $row['isbn'] . '>'.$row['title'].'  '. $row['author'];
 					echo"</a>";
   					echo "</li>";
