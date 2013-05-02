@@ -15,7 +15,7 @@ include 'mysqlcon.php';
 
 if (!$_SESSION['items']) $_SESSION['items'] = '0';
 if (!$_SESSION['total_price']) $_SESSION['total_price'] = '0.00';
-$shipcharge = 20;
+
 
 ?>
 <body style="background-color:lavender;">
