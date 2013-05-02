@@ -53,7 +53,7 @@ if ($new)
 	if (!isset($_SESSION['cart']))
 	{
 		$_SESSION['cart'] = array();
-		$_SESSION['item'] = 0;
+		$_SESSION['items'] = 0;
 		$_SESSION['total_price'] = '0.00';
  	}
 
