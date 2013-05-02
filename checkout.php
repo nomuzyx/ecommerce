@@ -87,16 +87,6 @@ $shipcharge = 20;
 						echo'<td align="right">$'.number_format($_SESSION['total_price'],2).'</td>';	
 						echo"</tr>";
 						
-						echo"<tr>";
-						echo'<td colspan = "3" >Shipping &nbsp </td>';
-						echo'<td align="right">$'.$shipcharge.'</td>';	
-						echo"</tr>";
-
-						echo"<tr>";
-						echo'<td colspan = "3" >TOTAL INCLUDING SHIPPING &nbsp </td>';
-						echo'<td align="right">$'.number_format($_SESSION["total_price"] + $shipcharge,2).'</td>';	
-						echo"</tr>";
-						
 				}
 				else
 				{
@@ -187,49 +177,13 @@ $shipcharge = 20;
 			
 	    </div>
 	</div>    
+	
 	<div class="row" style="margin-top:0%;padding:0%;">	    
-	    <div class="span12" style="background-color:skyblue;" >
-	    	<p class="text-center"><strong>Credit Card Details</strong></p>
-	    </div>
-	</div> 
-	<div class="row" style="margin-top:0%;padding-left:1%;">	 
-	    <div class="span12">
-			<table class="table">		
-				<tr>
-				<td class="span4" >Type</td>
-				<td class="span8"><input type="text" name="cardtype" class="span3"></td>
-			    </tr>
-				<tr>
-				<td class="span4" >number</td>
-				<td class="span8"><input type="text" name="cardno" class="span5"></td>
-			    </tr>					
-			    <tr>
-				<td class="span4" >AMEX code (if required)</td>
-				<td class="span8"><input type="text" name="amexcode" class="span2"></td>
-			    </tr>
-			    <tr>
-				<td class="span4" >Expiry Date</td>
-				<td class="span8"><input type="date" name="cardexpdt" class="span3"></td>
-			    </tr>
-			    <tr>
-				<td class="span4" >Name on Card</td>
-				<td class="span8"><input type="text" name="namecard" class="span5"></td>
-			    </tr>
-			    <tr>
-				<td class="span12" colspan="2" ><strong>Please press Purchase to confirm your purchase,or Continue Shopping to add or remove items.</strong></td>
-			    </tr>
-
-
-			</table>	
-			
-	    </div>
-	</div>    
-	<div class="row" style="margin-top:0%;padding:0%;">	    
-	    <div class="span4" style="background-color:lavender;">
+	    <div class="span5" style="background-color:lavender;">
 			<a href='<?php echo "$mcatlink"; ?>'>Continue Shopping</a>
 	    </div>
-	    <div class="span8">
-	        <button type="submit" name="save" class="btn btn-success btn-small">Purchase $</button>					
+	    <div class="span7">
+	        <button type="submit" name="save" class="btn btn-success btn-meduim">Next For Payments</button>					
 	    </div>
 	</div> 
 	</form>	   
