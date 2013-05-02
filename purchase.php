@@ -196,7 +196,7 @@ $shipcharge = 20;
 				}
 
 				
-				?>
+			?>
 			</table>			
 	    </div>
 	</div> 
@@ -243,10 +243,10 @@ $shipcharge = 20;
 	    </div>
 	    <div class="span8">
 	    	<?php 
-	    	if($_SESSION['cart']&&$name&&$address&&$city&&$zip&&$country)
-	    	{
-	    		echo'<button type="submit" name="save" class="btn btn-success btn-small">Purchase $</button>';						
-	    	}
+	    		if($_SESSION['cart']&&$name&&$address&&$city&&$zip&&$country)
+	    		{
+	    			echo'<button type="submit" name="save" class="btn btn-success btn-small">Purchase $</button>';						
+	    		}
 	        ?>
 	    </div>
 	</div> 
