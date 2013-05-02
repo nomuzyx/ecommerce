@@ -17,6 +17,13 @@ $qry="SELECT DISTINCT catname,catid FROM category ORDER BY catname";
 
 $result = mysqli_query($con,$qry);
 
+if (!isset($_SESSION['cart']))
+	{
+		$_SESSION['cart'] = array();
+		$_SESSION['item'] = 0;
+		$_SESSION['total_price'] = '0.00';
+ 	}
+ 	
 ?>
 <body style="background-color:lavender;">
 <div class="container">	  	

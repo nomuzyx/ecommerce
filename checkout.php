@@ -197,27 +197,26 @@ $shipcharge = 20;
 			<table class="table">		
 				<tr>
 				<td class="span4" >Type</td>
-				<td class="span8"><input type="text" name="ship_name" class="span5"></td>
+				<td class="span8"><input type="text" name="cardtype" class="span3"></td>
 			    </tr>
 				<tr>
 				<td class="span4" >number</td>
-				<td class="span8"><input type="text" name="ship_name" class="span5"></td>
+				<td class="span8"><input type="text" name="cardno" class="span5"></td>
 			    </tr>					
 			    <tr>
 				<td class="span4" >AMEX code (if required)</td>
-				<td class="span8"><input type="text" name="ship_city" class="span5"></td>
+				<td class="span8"><input type="text" name="amexcode" class="span2"></td>
 			    </tr>
 			    <tr>
 				<td class="span4" >Expiry Date</td>
-				<td class="span8"><input type="text" name="ship_state" class="span5"></td>
+				<td class="span8"><input type="date" name="cardexpdt" class="span3"></td>
 			    </tr>
 			    <tr>
 				<td class="span4" >Name on Card</td>
-				<td class="span8"><input type="text" name="ship_zip" class="span5"></td>
+				<td class="span8"><input type="text" name="namecard" class="span5"></td>
 			    </tr>
 			    <tr>
-				<td class="span5" >Country</td>
-				<td class="span7"><input type="text" name="ship_country" class="span5"></td>
+				<td class="span12" colspan="2" ><strong>Please press Purchase to confirm your purchase,or Continue Shopping to add or remove items.</strong></td>
 			    </tr>
 
 
@@ -225,12 +224,12 @@ $shipcharge = 20;
 			
 	    </div>
 	</div>    
-	<div class="row" style="margin-top:0%;padding:1%;">	    
-	    <div class="span6" style="background-color:lavender;">
-			<p><a href='<?php echo "$mcatlink"; ?>'>Continue Shopping</a></p>
+	<div class="row" style="margin-top:0%;padding:0%;">	    
+	    <div class="span4" style="background-color:lavender;">
+			<a href='<?php echo "$mcatlink"; ?>'>Continue Shopping</a>
 	    </div>
-	    <div class="span6">
-	         
+	    <div class="span8">
+	        <button type="submit" name="save" class="btn btn-success btn-small">Purchase $</button>					
 	    </div>
 	</div> 
 	</form>	   

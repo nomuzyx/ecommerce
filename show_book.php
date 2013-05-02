@@ -25,6 +25,14 @@ $qry="SELECT isbn,title,catid,author,price,descrip FROM books WHERE isbn =".$isb
 $result = mysqli_query($con,$qry);
 $row = mysqli_fetch_array($result);
 
+if (!isset($_SESSION['cart']))
+	{
+		$_SESSION['cart'] = array();
+		$_SESSION['item'] = 0;
+		$_SESSION['total_price'] = '0.00';
+ 	}
+ 	
+
 ?>
 <body style="background-color:lavender;">
 <div class="container">		
