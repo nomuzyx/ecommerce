@@ -53,32 +53,35 @@ function loginfunc($user,$pass,$con)
     <div class="row" style="margin-top:0%;padding:0%;">	
 		<div class="span12">
 		<?php	
-			if ($_POST['username'] && $_POST['password'])
+			if (!empty($_POST['username']) && !empty($_POST['password']))
 			{
-				$username = $_POST['username'];
-				$password = $_POST['password'];
-				try
+				if ($_POST['username'] && $_POST['password'])
 				{
-					if (loginfunc($username, $password,$con))
+					$username = $_POST['username'];
+					$password = $_POST['password'];
+					try
 					{
-						$_SESSION['valid_user'] = $username;
-						
-						echo'<p><a href="admin.php">Go To main site</a>';
-						echo"</p>";
-						echo'<p><a href="addcategory.php">Add a new category</a>';
-						echo"</p>";
-						echo'<p><a href="addbook.php">Add a new book</a>';
-						echo"</p>";
-						echo'<p><a href="passchan.php">Change admin password</a>';
-						echo"</p>";
-					}
+						if (loginfunc($username, $password,$con))
+						{
+							$_SESSION['valid_user'] = $username;
+							
+							echo'<p><a href="index.php">Go To main site</a>';
+							echo"</p>";
+							echo'<p><a href="addcategory.php">Add a new category</a>';
+							echo"</p>";
+							echo'<p><a href="insert_form.php">Add a new book</a>';
+							echo"</p>";
+							echo'<p><a href="passchan.php">Change admin password</a>';
+							echo"</p>";
+						}
 			
-				}	
-				catch(Exception $e)
-				{
-					echo "Could not log you in.";
+					}	
+					catch(Exception $e)
+					{
+						echo "Could not log you in.";
+					}
 				}
-			}
+			}	
 		?>	
 	    </div>
 	</div>  
