@@ -19,7 +19,7 @@
 				<p><Strong>LOGIN</strong></p>
 	        	<p><input type="text" size="30" name="username" value="" placeholder="Username"></p>
 	       		<p><input type="password" size="30" name="password" value="" placeholder="Password"></p>
-	       		<button class="btn btn-warning btn-small" type="submit">Login</button>
+	       		<button class="btn btn-warning btn-small" name="submit" type="submit">Login</button>
 	       		<a href="forgotpasswd.php" name="">Forgot Password</a>
 	       	</form>	
 	    </div>

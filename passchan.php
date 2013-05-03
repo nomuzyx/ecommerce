@@ -1,3 +1,21 @@
+<?php
+include 'mysqlcon.php';
+include 'admin_fns.php';
+session_start();
+
+if (!isset($_SESSION['valid_user'])) 
+{
+   header("Location: login.php");
+   exit();
+}
+
+if (isset($_GET['logout'])) 
+{
+	session_destroy();
+	header("Location: login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,49 +27,6 @@
 	<title>Online Book Store</title>
 </head>
 <?php
-include 'mysqlcon.php';
-session_start();
-
-function loginfunc($user,$pass,$con)
-{
-	$qry = "select * from users where username ='$user' and password = '$pass'";
-	
-	$result = mysqli_query($con,$qry);
-
-	if(!$result) 
-	{
-		throw new Exception('Could not log you in.');
-	}
-		
-	if ($result->num_rows > 0) 
-	{
-		return true;
-	}	
-	else
-	{
-		throw new Exception('Could not log you in.');
-	} 
-		
-}
-
-function change_password($user,$oldpass,$newpass,$con)
-{
-	loginfunc($user,$oldpass,$con);
-
-	$qry = "update users set password = '$newpass' where username = '$user'";
-	$result = mysqli_query($con,$qry);
-
-	if (!$result)
-	{
-		throw new Exception('Password cound not be changed.');
-	}
-	else
-	{
-		return true;
-	}
-
-}
-
 try
 {
 	if (!empty($_POST['oldpass']) && !empty($_POST['newpass']) && !empty($_POST['retypepass']))
@@ -72,11 +47,6 @@ try
 		change_password($_SESSION['valid_user'], $oldpass,$newpass,$con);
 		echo"Password changed successfully.";
 	}
-	//else
-//	{
-//		throw new Exception('You have not filled out the form completely.'.'Please try again.');	
-//	}	
-		
 
 }
 catch(Exception $e)
@@ -93,20 +63,25 @@ catch(Exception $e)
 		<div class="span6">
 			<h1>Online Book Store</h1>
 		</div>	
-		
+		<div class="span6">
+			<p><a href="passchan.php?logout=logout">Log Out</a></p>
+		</div>
 	</div>	
     <div class="row" style="margin-top:0%;padding:0%;">	
-		<div class="span12">
-			<div class="span6">
-				<form name="input" class="form-action" action="passchan.php" style="margin:10%;" method="post">
-					<p><Strong>Change password</strong></p>
-	       		 	<p><input type="password" size="30" name="oldpass" value="" placeholder="Old Password"></p>
-	       		 	<p><input type="password" size="30" name="newpass" value="" placeholder="New Password"></p>
-	       		 	<p><input type="password" size="30" name="retypepass" value="" placeholder="Repeat New Password"></p>
-	       			<button class="btn btn-warning btn-small" type="submit">Change password</button>
-	       			<!--<a href="admin.php" name="">Change Password</a>-->
-	       		</form>	
-			</div>	
+		<div class="span6">
+			<form name="input" class="form-action" action="passchan.php" style="margin:10%;" method="post">
+				<p><Strong>Change password</strong></p>
+	    	 	<p><input type="password" size="30" name="oldpass" value="" placeholder="Old Password"></p>
+	     	 	<p><input type="password" size="30" name="newpass" value="" placeholder="New Password"></p>
+	     	 	<p><input type="password" size="30" name="retypepass" value="" placeholder="Repeat New Password"></p>
+	     		<button class="btn btn-warning btn-small" type="submit">Change password</button>
+	     		<hr/>    			
+	     		<p><a href = "admin_view.php">Go To Admin Menu</p>
+	     	</form>		
+				
+	    </div>
+	    <div class="span6">
+				
 	    </div>
 	</div>  
 </div>
