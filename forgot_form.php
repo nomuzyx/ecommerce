@@ -22,12 +22,10 @@
 	</div>	
     <div class="row" style="margin-top:10%;padding:5%;">	    
 		<div class="span4 offset3" style="background-color:tan;">
-			<form name="input" class="form-action" action="admin.php" style="margin:10%;" method="post">
-				<p><Strong>LOGIN</strong></p>
+			<form name="input" class="form-action" action="forgot_password.php" style="margin:10%;" method="post">
+				<p><Strong>Reset password</strong></p>
 	        	<p><input type="text" size="30" name="username" value="" placeholder="Username"></p>
-	       		<p><input type="password" size="30" name="password" value="" placeholder="Password"></p>
-	       		<button class="btn btn-warning btn-small" name="submit" type="submit">Login</button>
-	       		<a href="forgot_form.php" name="">Forgot Password</a>
+	       		<button class="btn btn-warning btn-small" name="submit" type="submit">Change Password</button>
 	       	</form>	
 	    </div>
 	    <div class="span4">
