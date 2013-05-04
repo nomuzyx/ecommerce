@@ -20,7 +20,7 @@ $catid = $_GET['catid'];
 //	display_button('admin.php','admin-menu','Admin Menu');
 //}
 
-$qry="SELECT isbn,title,author FROM books WHERE catid =".$catid;
+$qry="SELECT isbn,title,author,catid FROM books WHERE catid =".$catid;
 
 $result = mysqli_query($con,$qry);
 
@@ -80,12 +80,29 @@ if (!isset($_SESSION['cart']))
 				}
 				?>
 			</ul>
-			<p><a href="index.php">Home</a></p>	
 	    </div>
 	    <div class="span6">
 	         
 	    </div>
-	</div>    
+	</div>   
+	<div class="row" style="margin-top:0%;padding:1%;">	    
+	    <div class="span6" style="background-color:lavender;">
+	    	<?php
+
+	    	if (isset($_SESSION['valid_user']))
+			{
+				echo"<p>";
+				echo'<a href= edit_category_form.php?catid='.$catid.'>Edit Category</a></p>';
+				echo'<p><a href="admin_view.php">Admin Menu</a></p>';
+			}
+			echo'<p><a href="index.php">Home</a></p>';	
+			
+			?>
+	    </div>
+	    <div class="span6">
+	         
+	    </div>
+	</div>     
 </div>
 <body>
 </html>
