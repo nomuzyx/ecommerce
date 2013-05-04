@@ -89,7 +89,7 @@ while($row1 = mysqli_fetch_array($result1))
 	       		if (isset($_SESSION['valid_user']))
 				{
 	       			echo'<p><button class="btn btn-success btn-small" type="submit">Update Book</button>';
-	       			echo'&nbsp&nbsp&nbsp<a href="delete_book.php?isbn=">Delete book</a></p>';
+	       			echo'&nbsp&nbsp&nbsp<a href=delete_book.php?isbn='.$row['isbn'].'&catid='.$row['catid'].'>Delete book</a></p>';
 	       		}
 	       		else
 	       		{

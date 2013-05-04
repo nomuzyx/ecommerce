@@ -31,6 +31,7 @@ $rcatname = mysqli_query($con,$qry1);
 //$row = mysql_fetch_array($result);
 
 $name = mysqli_fetch_array($rcatname);
+
 if (!isset($_SESSION['cart']))
 	{
 		$_SESSION['cart'] = array();
@@ -78,7 +79,8 @@ if (!isset($_SESSION['cart']))
   					echo "</li>";
 				}
 				?>
-			</ul>	
+			</ul>
+			<p><a href="index.php">Home</a></p>	
 	    </div>
 	    <div class="span6">
 	         

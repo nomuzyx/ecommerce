@@ -107,7 +107,7 @@ if (isset($_GET['logout']))
 				echo'<a href= show_cart.php?new='.$row["isbn"].'>Add To Cart</a></p>';
 				echo'<p><a href=show_cat.php?catid='.$row["catid"].'>Continue Shopping</a></p>';
 			}
-
+				echo'<p><a href="index.php">Home</a></p>';	
 			
 			?>
 	    </div>
