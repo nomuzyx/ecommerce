@@ -33,6 +33,12 @@ if (isset($_GET['logout']))
 		</div>	
 		<div class="span6">
 			<p><a href="admin_view.php?logout=logout">Log Out</a></p>
+			<?php
+				if (isset($_SESSION['valid_user'])) 
+				{
+   					echo '<p>Assalamualaikum   '.$_SESSION['valid_user'].'</p>';
+				}
+			?>	
 		</div>	
 	</div>	
 	<h3>Administration</h3>

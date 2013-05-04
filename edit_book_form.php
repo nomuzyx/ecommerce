@@ -67,6 +67,12 @@ while($row1 = mysqli_fetch_array($result1))
 		</div>	
 		<div class="span6">
 			<p><a href="edit_book_form.php?logout=logout">Log Out</a></p>
+			<?php
+				if (isset($_SESSION['valid_user'])) 
+				{
+   					echo '<p>Assalamualaikum   '.$_SESSION['valid_user'].'</p>';
+				}
+			?>	
 		</div>
 	</div>	
     <div class="row" style="margin-top:0%;padding:0%;">	

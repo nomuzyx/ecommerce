@@ -19,12 +19,12 @@ $qry="SELECT DISTINCT catname,catid FROM category ORDER BY catname";
 $result = mysqli_query($con,$qry);
 
 if (!isset($_SESSION['cart']))
-	{
-		$_SESSION['cart'] = array();
-		$_SESSION['items'] = 0;
-		$_SESSION['total_price'] = '0.00';
- 	}
- 	
+{
+	$_SESSION['cart'] = array();
+	$_SESSION['items'] = 0;
+	$_SESSION['total_price'] = '0.00';
+}
+
 ?>
 <body style="background-color:lavender;">
 <div class="container">	  	
@@ -34,12 +34,21 @@ if (!isset($_SESSION['cart']))
 			</div>	
 			<div class="span6">
 				<?php
-				echo"<p>Total Items =".$_SESSION['items'];
-				echo"</p>";
-				echo"<p>Total Price = $".$_SESSION['total_price'];
-				echo"</p>";
-				echo'<p><a href="show_cart.php">View Cart <img src="shopcart3.jpg" width="50" height="50"></a>';
-				echo"</p>";
+				if (isset($_SESSION['valid_user'])) 
+				{
+   					echo '<p>Assalamualaikum   '.$_SESSION['valid_user'].'</p>';
+				}
+				else
+				{
+					echo"<p>Total Items =".$_SESSION['items'];
+					echo"</p>";
+					echo"<p>Total Price = $".$_SESSION['total_price'];
+					echo"</p>";
+					echo'<p><a href="show_cart.php">View Cart <img src="shopcart3.jpg" width="50" height="50"></a>';
+					echo"</p>";
+				}	
+				
+
 				?>
 			</div>	
 	</div>	
