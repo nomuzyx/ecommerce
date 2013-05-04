@@ -15,10 +15,6 @@ include 'mysqlcon.php';
 
 $isbn = $_GET['isbn'];
 
-//if (isset($_SESSION['admin_user']))
-//{
-//	display_button('admin.php','admin-menu','Admin Menu');
-//}
 
 $qry="SELECT isbn,title,catid,author,price,descrip FROM books WHERE isbn =".$isbn;
 
@@ -26,12 +22,17 @@ $result = mysqli_query($con,$qry);
 $row = mysqli_fetch_array($result);
 
 if (!isset($_SESSION['cart']))
-	{
-		$_SESSION['cart'] = array();
-		$_SESSION['items'] = 0;
-		$_SESSION['total_price'] = '0.00';
- 	}
- 	
+{
+	$_SESSION['cart'] = array();
+	$_SESSION['items'] = 0;
+	$_SESSION['total_price'] = '0.00';
+}
+
+if (isset($_GET['logout'])) 
+{
+	session_destroy();
+	header("Location: login.php");
+} 	
 
 ?>
 <body style="background-color:lavender;">
@@ -42,12 +43,19 @@ if (!isset($_SESSION['cart']))
 			</div>	
 			<div class="span6">
 				<?php
-				echo"<p>Total Items =".$_SESSION['items'];
-				echo"</p>";
-				echo"<p>Total Price = $".$_SESSION['total_price'];
-				echo"</p>";
-				echo'<p><a href="show_cart.php">View Cart</a>';
-				echo"</p>";
+				if (isset($_SESSION['valid_user']))
+				{
+					echo'<p><a href="edit_book_form.php?logout=logout">Log Out</a></p>';
+				}
+				else
+				{
+					echo"<p>Total Items =".$_SESSION['items'];
+					echo"</p>";
+					echo"<p>Total Price = $".$_SESSION['total_price'];
+					echo"</p>";
+					echo'<p><a href="show_cart.php">View Cart</a>';
+					echo"</p>";
+				}	
 				?>
 			</div>	
 	</div>	
@@ -86,9 +94,21 @@ if (!isset($_SESSION['cart']))
 	<div class="row" style="margin-top:0%;padding:1%;">	    
 	    <div class="span6" style="background-color:lavender;">
 	    	<?php
-			echo"<p>";
-			echo'<a href= show_cart.php?new='.$row["isbn"].'>Add To Cart</a></p>';
-			echo'<p><a href=show_cat.php?catid='.$row["catid"].'>Continue Shopping</a></p>';
+
+	    	if (isset($_SESSION['valid_user']))
+			{
+				echo"<p>";
+				echo'<a href= edit_book_form.php?isbn='.$row["isbn"].'>Edit Item</a></p>';
+				echo'<p><a href="admin_view.php">Admin Menu</a></p>';
+			}
+			else
+			{
+				echo"<p>";
+				echo'<a href= show_cart.php?new='.$row["isbn"].'>Add To Cart</a></p>';
+				echo'<p><a href=show_cat.php?catid='.$row["catid"].'>Continue Shopping</a></p>';
+			}
+
+			
 			?>
 	    </div>
 	    <div class="span6">
